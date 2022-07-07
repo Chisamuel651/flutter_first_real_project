@@ -5,9 +5,11 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utensils/colors.dart';
+import 'package:flutter_application_1/widgets/app_column.dart';
 import 'package:flutter_application_1/widgets/big_text.dart';
 import 'package:flutter_application_1/widgets/icon_text_widget.dart';
 import 'package:flutter_application_1/widgets/small_text.dart';
+
 
 import '../../utensils/dimension.dart';
 
@@ -234,48 +236,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               child: Container(
                 padding: EdgeInsets.only(top: Dimensions.height15, left: Dimensions.height15, right: Dimensions.height15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    BigText(text: "Ripe Plantain And Koki"),
-                    SizedBox(height: Dimensions.height10,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        // use the wrap widget to draw something for a multiple number of times
-                        Wrap(
-                          children: List.generate(5, (index) => Icon(Icons.star, color: AppColors.mainColor, size: 15,)),
-                        ),
-                        SizedBox(width: Dimensions.height10,),
-                        SmallText(text: "4.7"),
-                        SizedBox(width: Dimensions.height10,),
-                        SmallText(text: "348"),
-                        SizedBox(width: 5,),
-                        SmallText(text: "comments")
-                      ],
-                    ),
-                    SizedBox(height: Dimensions.height5,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(width: Dimensions.height10,),
-                        IconAndTextWidget(icon: Icons.circle_sharp,
-                          text: "Normal",
-                          iconColor: AppColors.iconColor1),
-                          SizedBox(width: Dimensions.height10,),
-    
-                          IconAndTextWidget(icon: Icons.location_on,
-                          text: "1.7Km",
-                          iconColor: AppColors.mainColor),
-                          SizedBox(width: Dimensions.height10,),
-    
-                          IconAndTextWidget(icon: Icons.access_time_rounded,
-                          text: "32mins",
-                          iconColor: AppColors.iconColor2)
-                      ],
-                    )
-                  ],
-                ),
+                child: AppColumn(text: "Fufu And Eru"),
               ),
             ),
 

@@ -4,8 +4,10 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/utensils/dimension.dart';
 import 'package:flutter_application_1/widgets/app_icon.dart';
+import 'package:flutter_application_1/widgets/expandable_text_widget.dart';
 
 import '../../utensils/colors.dart';
+import '../../widgets/app_column.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/icon_text_widget.dart';
 import '../../widgets/small_text.dart';
@@ -16,8 +18,10 @@ class PopularFoodDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
+          // background image
           Positioned(
             left: 0,
             right: 0,
@@ -33,6 +37,7 @@ class PopularFoodDetail extends StatelessWidget {
                 )
               ),
           )),
+          // icon widget
           Positioned(
             top: Dimensions.height45,
             left: Dimensions.width20,
@@ -44,6 +49,7 @@ class PopularFoodDetail extends StatelessWidget {
                 AppIcon(icon: Icons.shopping_cart_outlined)
               ],
           )),
+          // introduction
           Positioned(
             left: 0,
             right: 0,
@@ -62,48 +68,62 @@ class PopularFoodDetail extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    BigText(text: "Fufu and Eru"),
-                    SizedBox(height: Dimensions.height10,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        // use the wrap widget to draw something for a multiple number of times
-                        Wrap(
-                          children: List.generate(5, (index) => Icon(Icons.star, color: AppColors.mainColor, size: 15,)),
-                        ),
-                        SizedBox(width: Dimensions.height10,),
-                        SmallText(text: "4.7"),
-                        SizedBox(width: Dimensions.height10,),
-                        SmallText(text: "348"),
-                        SizedBox(width: 5,),
-                        SmallText(text: "comments")
-                      ],
-                    ),
-                    SizedBox(height: Dimensions.height5,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(width: Dimensions.height5,),
-                        IconAndTextWidget(icon: Icons.circle_sharp,
-                          text: "Normal",
-                          iconColor: AppColors.iconColor1),
-                          SizedBox(width: Dimensions.height100,),
-    
-                          IconAndTextWidget(icon: Icons.location_on,
-                          text: "1.7Km",
-                          iconColor: AppColors.mainColor),
-                          SizedBox(width: Dimensions.height100,),
-    
-                          IconAndTextWidget(icon: Icons.access_time_rounded,
-                          text: "32mins",
-                          iconColor: AppColors.iconColor2),
-                          SizedBox(width: Dimensions.height5,)
-                      ],
-                    )
+                    AppColumn(text: "Fufu And Eru"),
+                    SizedBox(height: Dimensions.height20,),
+                    BigText(text: "Introduce"),
+                    SizedBox(height: Dimensions.height20,),
+                    // expandable text widget
+                    ExpandableTextWidget(text: "A Scaffold Widget provides a framework which implements the basic material design visual layout structure of the flutter app. It provides APIs for showing drawers, snack bars and bottom sheets. Have a look at its constructor and the properties it has.A Scaffold Widget provides a framework which implements the basic material design visual layout structure of the flutter app. It provides APIs for showing drawers, snack bars and bottom sheets. Have a look at its constructor and the properties it has.")
+
                   ],
                 ),
-          ))
+          )),
+
+
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: Dimensions.height120,
+        padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width15, right: Dimensions.width15),
+        decoration: BoxDecoration(
+          color: AppColors.buttonBgColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(Dimensions.radius20*2),
+            topRight: Radius.circular(Dimensions.radius20*2)
+          )
+        ),
+        // display the icons in the box
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
+                color: Colors.white
+              ),
+
+              child: Row(
+                children: [
+                  Icon(Icons.remove, color: AppColors.signColor,),
+                  SizedBox(width: Dimensions.width10),
+                  BigText(text: "0"),
+                  SizedBox(width: Dimensions.width10),
+                  Icon(Icons.add, color: AppColors.signColor,)
+                ],
+              ),
+            ),
+
+            Container(
+              padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
+              child: BigText(text: "1000/meal", color: Colors.white,),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
+                color: AppColors.mainColor,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

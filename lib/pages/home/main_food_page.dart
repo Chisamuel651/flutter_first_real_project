@@ -7,6 +7,7 @@ import 'package:flutter_application_1/utensils/dimension.dart';
 import 'package:flutter_application_1/widgets/big_text.dart';
 import 'package:flutter_application_1/widgets/small_text.dart';
 
+
 import 'food_page_body.dart';
 
 class MainFoodPage extends StatefulWidget {
