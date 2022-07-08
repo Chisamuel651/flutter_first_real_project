@@ -70,10 +70,10 @@ class PopularFoodDetail extends StatelessWidget {
                   children: [
                     AppColumn(text: "Fufu And Eru"),
                     SizedBox(height: Dimensions.height20,),
-                    BigText(text: "Introduce"),
+                    BigText(size: Dimensions.font20, text: "Introduce"),
                     SizedBox(height: Dimensions.height20,),
                     // expandable text widget
-                    ExpandableTextWidget(text: "A Scaffold Widget provides a framework which implements the basic material design visual layout structure of the flutter app. It provides APIs for showing drawers, snack bars and bottom sheets. Have a look at its constructor and the properties it has.A Scaffold Widget provides a framework which implements the basic material design visual layout structure of the flutter app. It provides APIs for showing drawers, snack bars and bottom sheets. Have a look at its constructor and the properties it has.")
+                    Expanded(child: SingleChildScrollView(child: ExpandableTextWidget(text: "A Scaffold Widget provides a framework which implements the basic material design visual layout structure of the flutter app. It provides APIs for showing drawers, snack bars and bottom sheets. Have a look at its constructor and the properties it has.A Scaffold Widget provides a framework which implements the basic material design visual layout structure of the flutter app. It provides APIs for showing drawers, snack bars and bottom sheets. Have a look at its constructor and the properties it has.")))
 
                   ],
                 ),

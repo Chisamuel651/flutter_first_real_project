@@ -6,6 +6,7 @@ import 'package:flutter_application_1/utensils/colors.dart';
 import 'package:flutter_application_1/widgets/small_text.dart';
 
 import '../utensils/dimension.dart';
+import 'big_text.dart';
 
 class ExpandableTextWidget extends StatefulWidget {
   final String text;
@@ -37,9 +38,9 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
   Widget build(BuildContext context) {
     return Container(
       // test the process based on results obtained from secondHalf
-      child: secondHalf.isEmpty?SmallText(text: firstHalf):Column(
+      child: secondHalf.isEmpty?SmallText(color: AppColors.paraColor, text: firstHalf):Column(
         children: [
-          SmallText(text: hiddenText?(firstHalf+"..."):(firstHalf+secondHalf),),
+          SmallText(height: 1.5, color: AppColors.paraColor, size: Dimensions.font18, text: hiddenText?(firstHalf+"..."):(firstHalf+secondHalf),),
           // display button
           InkWell(
             onTap: (){
@@ -49,8 +50,8 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
             },
             child: Row(
               children: [
-                SmallText(text: "show more", color: AppColors.mainColor,),
-                Icon(Icons.arrow_drop_down, color: AppColors.mainColor,)
+                SmallText(size: Dimensions.font15,text: "show more", color: AppColors.mainColor,),
+                Icon(hiddenText?Icons.arrow_drop_down:Icons.arrow_drop_up, color: AppColors.mainColor,)
               ],
             ),
           ),
