@@ -34,6 +34,7 @@ class Dimensions{
   static double width10 = screenHeight/91.4;
   static double width30 = screenHeight/30.46;
   static double width45 = screenHeight/20.31;
+  static double width50 = screenHeight/18.28;
   static double width5 = screenHeight/182.8;
   // icon size
   static double iconSize24 = screenHeight/38.08;
