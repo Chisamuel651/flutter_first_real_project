@@ -61,6 +61,12 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/food1.png
+    - assets/images/food2.JPG
+    - assets/images/food3.JPG
+    - assets/images/food4.JPG
+    - assets/images/food5.JPG
+    - assets/images/food6.JPG
+    - assets/images/food7.JPG
 
   # To add assets to your application, add an assets section, like this:
   # assets:
